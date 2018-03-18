@@ -31,11 +31,11 @@ public class Chat extends Thread implements Serializable {
                 message = in.readLine();
                 if(!message.equals("bye")) {
                     for (Socket s : SimpleChatDaemonServer.sockets) {
-                        if(!s.equals(socket)) {
+                        //if(!s.equals(socket)) {
                             PrintWriter printWriter = new PrintWriter(s.getOutputStream(), true);
                             //System.out.println(message);
                             printWriter.println(message);
-                        }
+                        //}
                     }
                     Thread.sleep(100);
                 } else {
