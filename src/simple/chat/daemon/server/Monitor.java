@@ -11,14 +11,19 @@ public class Monitor extends Thread {
 
     public Monitor() {
         System.out.println("Monitor attivato!");
+        System.out.println("Aggiornamento ogni 5 minuti");
     }
 
     @Override
     public void run() {
         while(true) {
-            System.out.println("Client connessi: "+SimpleChatDaemonServer.sockets.size());
+            System.out.println("Utenti connessi: "+SimpleChatDaemonServer.sockets.size());
+            SimpleChatDaemonServer.nicknames.forEach((nickname) -> {
+                System.out.println(nickname);
+            });
+            System.out.println("+--------------------------------------+");
             try {
-                Thread.sleep(60000);
+                Thread.sleep(300000);
             } catch (InterruptedException ex) {
                 Logger.getLogger(Monitor.class.getName()).log(Level.SEVERE, null, ex);
             }

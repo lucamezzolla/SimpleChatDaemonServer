@@ -15,11 +15,13 @@ import java.util.logging.Logger;
  */
 public class Chat extends Thread implements Serializable {
 
+    String nickname;
     Socket socket;
     private BufferedReader in;
 
-    public Chat(Socket s) throws IOException {
+    public Chat(Socket s, String n) throws IOException {
         this.socket = s;
+        this.nickname = n;
     }
 
     @Override
@@ -49,6 +51,7 @@ public class Chat extends Thread implements Serializable {
             try {
                 if(in != null) in.close();
                 SimpleChatDaemonServer.sockets.remove(socket);
+                SimpleChatDaemonServer.nicknames.remove(nickname);
                 if(socket != null) socket.close();
             } catch (IOException ex) {
                 Logger.getLogger(Chat.class.getName()).log(Level.SEVERE, null, ex);
