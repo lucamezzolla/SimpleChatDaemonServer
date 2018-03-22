@@ -6,7 +6,6 @@ import java.util.logging.Logger;
 /**
  *
  * @author Luca Mezzolla
- *
 */
 public class Monitor extends Thread {
 
