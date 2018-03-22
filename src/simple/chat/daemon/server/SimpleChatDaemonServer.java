@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class SimpleChatDaemonServer {
 
     /**
-     * Runs the server.
+     * Runs the server
      *
      * @param args
      * @throws java.io.IOException

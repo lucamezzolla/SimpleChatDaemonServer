@@ -46,7 +46,7 @@ public class Chat extends Thread implements Serializable {
                 }
             }
         } catch (Exception e) {
-            //
+            Logger.getLogger(Chat.class.getName()).log(Level.SEVERE, null, e);
         } finally {
             try {
                 if(in != null) in.close();
